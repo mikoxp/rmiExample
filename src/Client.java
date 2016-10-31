@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rmi;
+
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -23,7 +23,8 @@ public class Client {
     System.out.print("Write Text:");
     String txt=scanner.nextLine();
     try{
-        con=(ConnectInterface)Naming.lookup("//localhost/myrmi");
+        //con=(ConnectInterface)Naming.lookup("//localhost/myrmi");
+        con=(ConnectInterface)Naming.lookup("rmi://localhost:1099/myrmi");
         n=con.numberOfChart(txt);
         System.out.printf("Text has %d characters\n",n);
     }catch(MalformedURLException | NotBoundException | RemoteException e){
